@@ -1,1 +1,31 @@
-{% extends 'base.html' %} {% block content %} Welcome to Tweet_Clone
+{% extends 'base.html' %} {% block head_title %} this is amazing!! {% endblock
+head_title%} {% block content %} Welcome to Tweet_clone
+
+<div id="tweets">
+  replace me
+</div>
+
+<script>
+  const tweetsElement = document.getElementById('tweets');
+  tweetsElement.innerHTML = 'loading...';
+
+  let el1 = '<h1>Hi There 1</h1>';
+  let el2 = '<h1>Hi There 2</h1>';
+  let el3 = '<h1>Hi There 3</h1>';
+  tweetsElement.innerHTML = el1 + el2 + el3;
+
+  const xhr = new XMLHttpRequest();
+  const method = 'GET'; //
+  const url = '/tweets';
+  const responseType = 'json';
+
+  xhr.responseType = responseType;
+  xhr.open(method, url);
+  xhr.onload = function () {
+    const serverResponse = xhr.response;
+    var listedItems = xhr.response.response;
+    console.log(listedItems);
+  };
+  xhr.send();
+</script>
+{% endblock content %}
