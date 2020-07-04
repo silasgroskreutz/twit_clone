@@ -1,7 +1,13 @@
 {% extends 'base.html' %} {% block head_title %} this is amazing!! {% endblock
-head_title%} {% block content %} Welcome to Tweet_clone
+head_title%} {% block content %}
 
-<div id="tweets">
+<div class="row text-center">
+  <div class="col">
+    <h1>Welcome to Tweet_clone</h1>
+  </div>
+</div>
+
+<div class="row" id="tweets">
   loading...
 </div>
 
@@ -28,7 +34,7 @@ head_title%} {% block content %} Welcome to Tweet_clone
   }
 
   functionformatTweetElement(tweet) {
-    let formattedTweet = "<div class='mb-4 tweet' id='tweet-" + tweet.id
+    let formattedTweet = "<div class='col-12 col-md-10 mx-auto border rounded py-3 mb-4 tweet' id='tweet-" + tweet.id
     + "'><p>" + tweet.content +
     "</p><div class='btn-group'>" +LikeBtn() +
     "</p></div>";
