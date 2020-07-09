@@ -35,13 +35,26 @@ head_title%} {% block content %}
 
   function handleTweetCreateFormDidSumbit(event) {
     event.preventDefault();
+    const myForm = event.target
+    const myFormData = new FormData(myForm)
+    const url = myForm.getAttribute("action")
+    const method = myForm.getAttribute("method")
+    const xhr = new XMLHttpRequest()
+    xhr.open(method, url)
+    xhr.onload = function() {
+      const serverResponse = xhr.response
+      const tweetsEl = document.getElementById("tweets")
+      loadTweets(tweetsEl)
+    }
+    xhr.send(myFormData)
+
   }
 
   const tweetCreateFormEl = document.getElementById("tweet-create-form")
 
   tweetCreateFormEl.addEventListener("submit", )
 
-  const tweetsEl = document.getElementById("tweets", handleTweetCreateFormDidSumbit)
+  const tweetsEl = document.getElementById("tweets")
 
   function loadTweets(tweetsElement) {
     const xhr = new XMLHttpRequest();
