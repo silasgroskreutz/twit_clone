@@ -51,8 +51,15 @@ head_title%} {% block content %}
         const ogHTML = tweetsContainerElement.innerHTML
         tweetsContainerElement.innerHTML = newTweetElement + ogHTML
         myForm.reset()
+      } else if (xhr.status === 400) {
+        const errorJson = xhr.response
+      } else if (xhr.status === 500) {
+        alert("There was a server error, please try again.")
       }
 
+    }
+    xhr.onerror = function() {
+      alert("An error occurred. Please try again later.")
     }
     xhr.send(myFormData)
 
