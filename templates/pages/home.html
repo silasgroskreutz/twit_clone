@@ -80,7 +80,11 @@ head_title%} {% block content %}
           } else {
             alert("An error occurred. Please Try again.")
           }
-        } else if (xhr.status === 500) {
+        } else if (xhr.status === 401) {
+          alert("You must login")
+          windo.location.href = "/login"
+        }
+        else if (xhr.status === 500) {
           alert("There was a server error, please try again.")
         }
 
