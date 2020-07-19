@@ -111,14 +111,14 @@ head_title%} {% block content %}
       xhr.responseType = responseType;
       xhr.open(method, url);
       xhr.onload = function () {
-      const serverResponse = xhr.response;
-      const listedItems = xhr.response.response;
-      let finalTweetStr = '';
-      let i;
-      for (i = 0; i < listedItems.length; i++) {
-        let tweetObj = listItems[i]
-        let currentItem = formatTweetElement(tweetObj)
-          let finalTweetStr += currentItem;
+        const serverResponse = xhr.response;
+        const listedItems = serverResponse;
+        let finalTweetStr = '';
+        let i;
+        for (i = 0; i < listedItems.length; i++) {
+         let tweetObj = listItems[i]
+          let currentItem = formatTweetElement(tweetObj)
+            let finalTweetStr += currentItem;
       }
       tweetsElement.innerHTML = finalTweetStr;
     };
